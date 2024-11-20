@@ -1,4 +1,3 @@
-
 • Building two .NET Microservices using the REST API pattern
 • Working with dedicated persistence layers for both services
 • Deploying our services to Kubernetes cluster
@@ -7,97 +6,132 @@
 • Building Asynchronous messaging between services using an Event Bus (RabbitMQ)
 
 
-⏲️ Time Codes ⏲️
+How to Build Microservice Project Step by Step: 
 
-    0:00 PART 1 - INTRODUCTION & Theory
-    2:39 Course Approach
-    6:11 Course Overview
-    11:31 Ingredients & Tooling
-    16:14 What are microservices?
-    33:40 Overview of our microservices
-    37:37 Solution Architecture
-    43:54 Application Architecture 
+PART 1 - INTRODUCTION & Theory 
+
+- Solution Architecture:
+
+  ![image](https://github.com/user-attachments/assets/f7167e0c-4f7c-4bbb-b11f-0c3afde60c29)
+
+      kubectl rollout restart deployment ingress-nginx-controller -n ingress-nginx
+- Application Architecture:
+  
+  - Platform service Architecture
+
+    ![image](https://github.com/user-attachments/assets/6a03b3b8-0baa-4ed6-a440-7ea59946d633)
+
+  - Command service Architecture
+
+    ![image](https://github.com/user-attachments/assets/bbc3997a-fae6-4ce1-a49d-77466d754c72)
+
+PART 2 - BUILDING THE FIRST SERVICE
+
+- Scaffolding the service
+  
+  - Uplaod this packages:
+    - Microsoft.EntityFrameworkCore
+    - Microsoft.EntityFrameworkCore.Design
+    - Microsoft.EntityFrameworkCore.Tools
+    - Microsoft.EntityFrameworkCore.SqlServer
+    - Microsoft.EntityFrameworkCore.InMemory
+    - AutoMapper
+    - RabbitMQ.Client
+    - Grpc.AspNetCore
+  
+- Data Layer - Model
+
+  On this layer you`ll create a new folder with name "Models" and create your model Class.
+- Data Layer - DB Context
+
+  On this layer you Will create a new folder with name "Data" and create your DB Context Class and Set your Model on it, After that you must add service (Db Context) on your `Program.cs or Startup.cs` to create the Data Base.
+- Data Layer - Repository
+  - On this layer you`ll Create the Repositories:
+    - Interfaces Repository
+
+      That to defined the functions you need.
+    - Class Repository
+
+      That Inherts the Interface Repository to implement it`s functions and Using the Db Context.
+      
+  After that you Will AddScoped Service on your `Program.cs or Startup.cs`.
+- Data Layer - DB Preparation
+  
+  Here you will create yor Seed Data and Apply it on your `Program.cs or Startup.cs` to implement it.
+- Data Layer - Data Transfer Objects
+
+  Here we will create a new folder in name "Dtos" containing a set of classes that are similar to those found in Models and used to read and create items.
+- Controller and Actions
+  
+  Here We Will create a Controller Api that using the Repositories layer to build the Actions.
+  These procedures adds, delete and modify data on the database and more actions like you need.
+
+PART 3 - DOCKER & KUBERNETES
+
+    - Review of Docker
+    - Containerizing the Platform Service
+    - Pushing to Docker Hub
+    - Introduction to Kubernetes
+    - Kubernetes Architecture Overview
+    - Deploy the Platform service
+    
+PART 4 - STARTING OUR 2ND SERVICE
+
+    - Scaffolding the service
+    - Add a Controller and Action
+    - Overview of Synchronous and Asynchronous Messaging
+    - Adding a HTTP Client
+    - Deploying service to Kubernetes
+    - Adding an API Gateway
+
+PART 5 - STARTING WITH SQL SERVER
+
+    - Adding a Persistent Volume Claim
+    - Adding a Kubernetes Secret
+    - Deploying SQL Server to Kubernetes
+    - Accessing SQL Server via Management Studio
+    - Updating our Platform Service to use SQL Server
 
 
-    46:47 PART 2 - BUILDING THE FIRST SERVICE
-    47:33 Scaffolding the service
-    52:37 Data Layer - Model
-    57:35 Data Layer - DB Context
-    1:02:38 Data Layer - Repository
-    1:16:00 Data Layer - DB Preparation
-    1:27:31 Data Layer - Data Transfer Objects
-    1:41:19 Controller and Actions
+PART 6 - MULTI-RESOURCE API
+
+    - End Point Review for Commands Service
+    - Data Layer - Models
+    - Data Layer - DB Context
+    - Data Layer - Repository
+    - Data Layer - Dtos
+    - Data Layer - AutoMapper Profiles
+    - Controller & Actions
 
 
-2:16:21 PART 3 - DOCKER & KUBERNETES
+PART 7 - MESSAGE BUS & RABBITMQ
 
-    2:16:21 Review of Docker
-    2:20:55 Containerizing the Platform Service
-    2:37:29 Pushing to Docker Hub
-    2:42:43 Introduction to Kubernetes
-    2:46:54 Kubernetes Architecture Overview
-    2:58:40 Deploy the Platform service
+    - Solution Architecture Overview
+    - RabbitMQ Overview
+    - Deploy RabbitMQ to Kubernetes
 
 
-3:25:01 PART 4 - STARTING OUR 2ND SERVICE
+PART 8 - ASYNCHRONOUS MESSAGING
 
-    3:25:01 Scaffolding the service
-    3:30:41 Add a Controller and Action
-    3:41:50 Overview of Synchronous and Asynchronous Messaging
-    3:55:21 Adding a HTTP Client
-    4:19:34 Deploying service to Kubernetes
-    4:44:55 Adding an API Gateway
-
-
-
-5:07:12 PART 5 - STARTING WITH SQL SERVER
-
-    5:07:12 Adding a Persistent Volume Claim
-    5:12:34 Adding a Kubernetes Secret
-    5:15:12 Deploying SQL Server to Kubernetes
-    5:30:31 Accessing SQL Server via Management Studio
-    5:33:06 Updating our Platform Service to use SQL Server
+    - Add a Message Bus Publisher to Platform Service
+    - Testing our Publisher
+    - Command Service ground work
+    - Event Processing
+    - Adding an Event Listener
+    - Testing Locally
+    - Deploying to Kubernetes
 
 
-6:06:02 PART 6 - MULTI-RESOURCE API
+PART 9 - GRPC
 
-    6:06:02 End Point Review for Commands Service
-    6:09:31 Data Layer - Models
-    6:16:38 Data Layer - DB Context
-    6:21:37 Data Layer - Repository
-    6:34:53 Data Layer - Dtos
-    6:40:49 Data Layer - AutoMapper Profiles
-    6:45:26 Controller & Actions
-
-
-7:20:49 PART 7 - MESSAGE BUS & RABBITMQ
-
-    7:20:49 Solution Architecture Overview
-    7:24:06 RabbitMQ Overview
-    7:28:55 Deploy RabbitMQ to Kubernetes
-
-
-7:43:27 PART 8 - ASYNCHRONOUS MESSAGING
-
-    7:44:01 Add a Message Bus Publisher to Platform Service
-    8:18:07 Testing our Publisher
-    8:25:19 Command Service ground work
-    8:36:46 Event Processing
-    8:59:14 Adding an Event Listener
-    9:19:29 Testing Locally
-    9:26:28 Deploying to Kubernetes
-
-
-9:39:12 PART 9 - GRPC
-
-    9:39:12 Overview of gRPC
-    9:44:06 Final Kubernetes networking configuration
-    9:54:32 Adding gRPC Package references
-    9:56:44 Working with Protocol Buffers
-    10:03:55 Adding a gRPC Server to Platforms Service
-    10:20:53 Adding a gRPC Client to Commands Service
-    10:39:41 Adding a Database prep class to Commands Service
-    10:48:05 Test Locally
-    10:51:01 Deploy to Kubernetes
-    10:58:43 Final thoughts & thanks
-    11:00:55 Supporter Credits
+    - Overview of gRPC
+    - Final Kubernetes networking configuration
+    - Adding gRPC Package references
+    - Working with Protocol Buffers
+    - Adding a gRPC Server to Platforms Service
+    - Adding a gRPC Client to Commands Service
+    - Adding a Database prep class to Commands Service
+    - Test Locally
+    - Deploy to Kubernetes
+    - Final thoughts & thanks
+    - Supporter Credits
