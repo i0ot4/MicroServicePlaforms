@@ -1,9 +1,14 @@
-• Building two .NET Microservices using the REST API pattern
-• Working with dedicated persistence layers for both services
-• Deploying our services to Kubernetes cluster
-• Employing the API Gateway pattern to route to our services
-• Building Synchronous messaging between services (HTTP & gRPC)
-• Building Asynchronous messaging between services using an Event Bus (RabbitMQ)
+• Building two .NET Microservices using the REST API pattern.
+
+• Working with dedicated persistence layers for both services.
+
+• Deploying our services to Kubernetes cluster.
+
+• Employing the API Gateway pattern to route to our services.
+
+• Building Synchronous messaging between services (HTTP & gRPC).
+
+• Building Asynchronous messaging between services using an Event Bus (RabbitMQ).
 
 
 How to Build Microservice Project Step by Step: 
@@ -15,6 +20,7 @@ PART 1 - INTRODUCTION & Theory
   ![image](https://github.com/user-attachments/assets/f7167e0c-4f7c-4bbb-b11f-0c3afde60c29)
 
       kubectl rollout restart deployment ingress-nginx-controller -n ingress-nginx
+  
 - Application Architecture:
   
   - Platform service Architecture
@@ -25,8 +31,10 @@ PART 1 - INTRODUCTION & Theory
 
     ![image](https://github.com/user-attachments/assets/bbc3997a-fae6-4ce1-a49d-77466d754c72)
 
+
 PART 2 - BUILDING THE FIRST SERVICE
 
+`First we must create a WebApi project by Visual Code using dotnet vresion 8.0 or 6.0.`
 - Scaffolding the service
   
   - Uplaod this packages:
@@ -41,10 +49,10 @@ PART 2 - BUILDING THE FIRST SERVICE
   
 - Data Layer - Model
 
-  On this layer you`ll create a new folder with name "Models" and create your model Class.
+  On this layer you Will create a new folder with name `Models` and create your model Class.
 - Data Layer - DB Context
 
-  On this layer you Will create a new folder with name "Data" and create your DB Context Class and Set your Model on it, After that you must add service (Db Context) on your `Program.cs or Startup.cs` to create the Data Base.
+  On this layer you Will create a new folder with name `Data` and create your DB Context Class and Set your Model on it, After that you must add service (Db Context) on your `Program.cs or Startup.cs` to create the Data Base.
 - Data Layer - Repository
   - On this layer you`ll Create the Repositories:
     - Interfaces Repository
@@ -60,7 +68,7 @@ PART 2 - BUILDING THE FIRST SERVICE
   Here you will create yor Seed Data and Apply it on your `Program.cs or Startup.cs` to implement it.
 - Data Layer - Data Transfer Objects
 
-  Here we will create a new folder in name "Dtos" containing a set of classes that are similar to those found in Models and used to read and create items.
+  Here we will create a new folder in name `Dtos` containing a set of classes that are similar to those found in Models and used to read and create items.
 - Controller and Actions
   
   Here We Will create a Controller Api that using the Repositories layer to build the Actions.
