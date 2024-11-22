@@ -86,7 +86,7 @@ PART 3 - DOCKER & KUBERNETES
  - To Pull image from the Docker hub:
 
         docker push userName/imangeName
- - get images:
+ - Get images:
    
         docker ps
     - Introduction to Kubernetes
