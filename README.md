@@ -76,7 +76,17 @@ PART 2 - BUILDING THE FIRST SERVICE
 
 PART 3 - DOCKER & KUBERNETES
 
-    - Review of Docker
+ - Download Docker Desktop
+ - To Build Image
+   
+       - docker build -t userName/imangeName .
+ - To push image to the Docker hub:
+   
+       - docker push userName/imangeName
+ - To Pull image from the Docker hub:
+
+       - docker push userName/imangeName
+ - 
     - Containerizing the Platform Service
     - Pushing to Docker Hub
     - Introduction to Kubernetes
