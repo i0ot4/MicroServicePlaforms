@@ -79,13 +79,13 @@ PART 3 - DOCKER & KUBERNETES
  - Download Docker Desktop
  - To Build Image
    
-       - docker build -t userName/imangeName .
+        docker build -t userName/imangeName .
  - To push image to the Docker hub:
    
-       - docker push userName/imangeName
+        docker push userName/imangeName
  - To Pull image from the Docker hub:
 
-       - docker push userName/imangeName
+        docker push userName/imangeName
  - 
     - Containerizing the Platform Service
     - Pushing to Docker Hub
