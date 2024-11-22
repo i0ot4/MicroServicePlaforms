@@ -86,9 +86,9 @@ PART 3 - DOCKER & KUBERNETES
  - To Pull image from the Docker hub:
 
         docker push userName/imangeName
- - 
-    - Containerizing the Platform Service
-    - Pushing to Docker Hub
+ - get images:
+   
+        docker ps
     - Introduction to Kubernetes
     - Kubernetes Architecture Overview
     - Deploy the Platform service
