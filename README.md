@@ -1,3 +1,5 @@
+https://youtu.be/DgVjEo3OGBI?si=b5qHn1vr5vpFVquN
+
 • Building two .NET Microservices using the REST API pattern.
 
 • Working with dedicated persistence layers for both services.
